@@ -1,5 +1,4 @@
 let edad = 16;
-let trago = '';
 
 const cat1A = 2500; //16-25 años, hombre
 const cat1B = 2350; //16-25 años, mujer
