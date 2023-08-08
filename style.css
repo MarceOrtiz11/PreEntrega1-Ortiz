@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Handjet:wght@300;400;500&family=Oswald:wght@300;400;500;600;700&display=swap');
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
 html{
     box-sizing: border-box;
     font-size: 62.5%;
@@ -5,11 +11,9 @@ html{
     padding: 0 auto;
 }
 
-*, *::before, *::after {
-    box-sizing: inherit;
-}
-
 body{
+    font-family: 'Handjet', cursive;
+    font-family: 'Oswald', sans-serif;
     margin: 0;
     padding:0;
     background: linear-gradient(120deg, rgb(255, 174, 145) 30%, coral 88%, bisque 40%, rgb(255, 185, 160) 78%);
@@ -54,8 +58,13 @@ h1{
     flex-direction:row;
     flex-wrap: wrap;   
     width:80%;
-    margin:auto; 
+    margin-top: 20px;
+    margin-bottom: 20px;
     color:#3f3f3f;
+}
+
+.sec-2 img{
+    border-radius: 15%;
 }
 
 .div-button{
