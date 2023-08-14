@@ -87,7 +87,7 @@ const generaCuota = (genero, edad) => {
 
 
 
-// Clase 1 - SINTAXIS Y VARIABLES // 
+// Clase 1 - SINTAXIS Y VARIABLES //
 
 const entrada = prompt("cuantos años tenes?")
 const entrada2 = prompt("año de nacimiento (con 4 digitos)?")
@@ -209,3 +209,140 @@ alert(salida2)
 // }
 
 // alert("a mimir")
+
+
+
+
+
+
+// ***Clase 4*** - Funciones //
+
+
+// declaracion de una variable
+// le doy nombre y valor
+
+// const nombre = "marce";
+
+// declaracion (creacion) de una funcion
+// le doy un nombre  y un comportamiento asociado
+
+// function saludar() {
+//     alert("Hola! Estudiantes!")
+//     alert("hora de trabajar!")
+//     console.log("Hola! Estudiantes!")
+// }
+
+// //llamado a la funcion o invocar
+// for (let veces = 0; veces < 5; veces++) {
+//     saludar()
+// }
+
+
+// function saludoAmistoso(nombre) {
+//     alert("Hola!, " + nombre + " como va? Todo bien?")
+// }
+
+// saludoAmistoso("Stefy")
+// saludoAmistoso("Marce")
+// saludoAmistoso("Hernan")
+
+
+// un producto sale $100 y tiene 15% off
+// function aplicarDescuento(montoInicial, porcentajeDescuento) {
+//     const montoADescontar = montoInicial / 100 * porcentajeDescuento
+//     const montoFinal = montoInicial - montoADescontar
+//     alert(montoFinal)
+// }
+
+// aplicarDescuento(500, 10)
+
+
+
+// esto es otra forma de tomar valores ingresados por el cliente
+
+// function aplicarDescuento(montoInicial, porcentajeDescuento) {
+//     const montoADescontar = montoInicial / 100 * porcentajeDescuento
+//     const montoFinal = montoInicial - montoADescontar
+//     alert(montoFinal)
+// }
+
+// const montoInicial = parseFloat(prompt("ingrese el monto inicial"))
+// const porcentajeDescuento = parseFloat(prompt("ingrese el descuento a aplicar"))
+
+// aplicarDescuento(montoInicial, porcentajeDescuento)
+
+
+// otra forma de que la funcion me devuelva el resultado
+
+
+// function aplicarDescuento(montoInicial, porcentajeDescuento) {
+//     const montoADescontar = montoInicial / 100 * porcentajeDescuento
+//     const montoFinal = montoInicial - montoADescontar
+//     // alert(montoFinal)
+//     return montoFinal
+// }
+
+// //entrada de datos
+// const montoInicial = parseFloat(prompt("ingrese el monto inicial"))
+// const porcentajeDescuento = parseFloat(prompt("ingrese el descuento a aplicar"))
+
+// //procesamiento de datos
+// const montoFinal = aplicarDescuento(montoInicial, porcentajeDescuento)
+
+// //salida de informacion
+// alert(montoFinal)
+
+
+
+// function calcular(primerNumero, segundoNumero, operador) {
+//     switch (operador) {
+//         case "+":
+//             return primerNumero + segundoNumero;
+//             break;
+//         case "-":
+//             return primerNumero - segundoNumero;
+//             break;
+//         case "*":
+//             return primerNumero * segundoNumero;
+//             break;
+//         case "/":
+//             return primerNumero / segundoNumero;
+//             break;
+//         default:
+//             return 0;
+//             break;
+//     }
+// }
+
+// version mas corta y clara sin usar switch (vale igual que todo el codigo anterior)
+
+    // if (operador === "+") {
+    //     return primerNumero + segundoNumero;
+    // } else if (operador === "-") {
+    //     return primerNumero - segundoNumero;
+    // } else if (operador === "*") {
+    //     return primerNumero * segundoNumero;
+    // } else if (operador === "/") {
+    //     return primerNumero / segundoNumero;
+    // } else {
+    //     return 0;
+    // }
+
+
+//entrada de datos
+// const primerNumero = parseFloat(prompt("ingrese el primer numero"))
+// const segundoNumero = parseFloat(prompt("ingrese el segundo numero"))
+// const operador = prompt("ingrese operacion")
+
+// //procesamiento de datos
+// const resultado = calcular(primerNumero, segundoNumero, operador)
+
+// //salida de informacion
+// alert(resultado)
+
+
+
+
+
+
+// ***Clase 5*** - Objetos //
