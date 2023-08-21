@@ -89,12 +89,12 @@ const generaCuota = (genero, edad) => {
 
 // Clase 1 - SINTAXIS Y VARIABLES //
 
-const entrada = prompt("cuantos años tenes?")
-const entrada2 = prompt("año de nacimiento (con 4 digitos)?")
-const salida = "estas grande! ya tenes " + entrada + "?"
-const salida2 = "ojo! si naciste en" + entrada2 + " " + "tenes que tener" + " " + (2023-entrada2) +"!!"
-alert(salida)
-alert(salida2)
+// const entrada = prompt("cuantos años tenes?")
+// const entrada2 = prompt("año de nacimiento (con 4 digitos)?")
+// const salida = "estas grande! ya tenes " + entrada + "?"
+// const salida2 = "ojo! si naciste en" + entrada2 + " " + "tenes que tener" + " " + (2023-entrada2) +"!!"
+// alert(salida)
+// alert(salida2)
 
 
 
