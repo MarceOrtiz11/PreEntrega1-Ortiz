@@ -232,7 +232,7 @@ const generaCuota = (genero, edad) => {
 //     console.log("Hola! Estudiantes!")
 // }
 
-// //llamado a la funcion o invocar
+//llamado a la funcion o invocar
 // for (let veces = 0; veces < 5; veces++) {
 //     saludar()
 // }
@@ -247,7 +247,7 @@ const generaCuota = (genero, edad) => {
 // saludoAmistoso("Hernan")
 
 
-// un producto sale $100 y tiene 15% off
+//un producto sale $100 y tiene 15% off
 // function aplicarDescuento(montoInicial, porcentajeDescuento) {
 //     const montoADescontar = montoInicial / 100 * porcentajeDescuento
 //     const montoFinal = montoInicial - montoADescontar
