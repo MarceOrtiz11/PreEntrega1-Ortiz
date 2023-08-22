@@ -1,3 +1,97 @@
+//Saludo al tutor para agregar Prompt, Alert y Funcion interactiva
+
+const nombre = prompt("Bienvenido Tutor, tu nombre es?")
+
+function saludoAmistoso(nombre) {
+    alert("Hola!, " + nombre + "!!!" + " Gracias por corregir esta pre-entrega!")
+}
+
+saludoAmistoso(nombre)
+
+const salida2 = "Todos los comentarios son bienvenidos!"
+alert(salida2)
+
+
+
+
+//Intervalo automatico para el contador 
+
+const actualizador = setInterval(function(){
+
+//Definimos el tiempo de inicio en milisegundos
+
+const inicioClase = new Date('August 31, 2023 23:59:59').getTime();
+console.log(inicioClase);
+
+//Definimos el tiempo de ahora en milisegundos
+
+const tiempoActual = new Date().getTime();
+console.log(tiempoActual);
+
+//Calculamos la diferencia entre el inicio y el tiempo actual;
+
+let tiempoRestante = inicioClase - tiempoActual;
+console.log(tiempoRestante);
+
+//Convertimos los milisegundos en segundos 1s = 1000 ms;
+
+tiempoRestante /=1000;
+console.log(tiempoRestante);
+
+//Calculamos los dias restantes
+
+const dias = Math.floor(tiempoRestante/(60*60*24));
+console.log(dias);
+
+//Calculamos las horas restantes
+
+const horas = Math.floor((tiempoRestante%(60*60*24))/(60*60));
+console.log(horas);
+
+
+//Calculamos los minutos restantes
+
+const minutos = Math.floor((tiempoRestante%(60*60))/(60));
+console.log(minutos);
+
+//Calculamos los segundos restantes
+
+const segundos = Math.floor(tiempoRestante%(60));
+console.log(segundos);
+
+const contador = document.getElementById('contador');
+
+
+//Agregamos los elementos HTML con el valor del tiempo al contenedor con el id contador
+
+contador.innerHTML = `
+<div>
+    <span>${dias}</span>
+    <span class="texto">Dias</span>
+</div> 
+<div>
+    <span>${horas}</span>
+    <span class="texto">Horas</span>
+</div>
+<div>
+    <span>${minutos}</span>
+    <span class="texto">Minutos</span>
+</div>
+<div>
+    <span>${segundos}</span>
+    <span class="texto">Segundos</span>
+</div>
+`;
+}, 1000);
+
+
+console.log('test');
+
+
+
+
+//Inicio del cotizador de cuota 
+
 let edad = 16;
 
 const cat1A = 2500; //16-25 años, hombre
@@ -85,93 +179,3 @@ const generaCuota = (genero, edad) => {
         `;
     }
 }
-
-//Intervalo automatico 
-
-const actualizador = setInterval(function(){
-
-//Definimos el tiempo de inicio en milisegundos
-
-const inicioClase = new Date('August 31, 2023 23:59:59').getTime();
-console.log(inicioClase);
-
-//Definimos el tiempo de ahora en milisegundos
-
-const tiempoActual = new Date().getTime();
-console.log(tiempoActual);
-
-//Calculamos la diferencia entre el inicio y el tiempo actual;
-
-let tiempoRestante = inicioClase - tiempoActual;
-console.log(tiempoRestante);
-
-//Convertimos los milisegundos en segundos 1s = 1000 ms;
-
-tiempoRestante /=1000;
-console.log(tiempoRestante);
-
-//Calculamos los dias restantes
-
-const dias = Math.floor(tiempoRestante/(60*60*24));
-console.log(dias);
-
-//Calculamos las horas restantes
-
-const horas = Math.floor((tiempoRestante%(60*60*24))/(60*60));
-console.log(horas);
-
-
-//Calculamos los minutos restantes
-
-const minutos = Math.floor((tiempoRestante%(60*60))/(60));
-console.log(minutos);
-
-//Calculamos los segundos restantes
-
-const segundos = Math.floor(tiempoRestante%(60));
-console.log(segundos);
-
-const contador = document.getElementById('contador');
-
-
-//Agregamos los elementos HTML con el valor del tiempo al contenedor con el id contador
-
-contador.innerHTML = `
-<div>
-    <span>${dias}</span>
-    <span class="texto">Dias</span>
-</div> 
-<div>
-    <span>${horas}</span>
-    <span class="texto">Horas</span>
-</div>
-<div>
-    <span>${minutos}</span>
-    <span class="texto">Minutos</span>
-</div>
-<div>
-    <span>${segundos}</span>
-    <span class="texto">Segundos</span>
-</div>
-`;
-}, 1000);
-
-
-console.log('test');
-
-
-
-//Saludo al tutor para agregar Prompt, Alert y Function interactiva
-
-const nombre = prompt("Bienvenido Tutor, tu nombre es?")
-
-function saludoAmistoso(nombre) {
-    alert("Hola!, " + nombre + "!!!" + " Gracias por corregir esta pre-entrega!")
-}
-
-saludoAmistoso(nombre)
-
-const salida2 = "Todos los comentarios son bienvenidos!"
-alert(salida2)
-
-//Se borra todo el codigo comentado a pedido de la correccion de la 1er Pre Entrega
