@@ -171,7 +171,7 @@ function saludoAmistoso(nombre) {
 
 saludoAmistoso(nombre)
 
-const salida2 = "Todas las correcciones son bienvenidas!"
+const salida2 = "Todos los comentarios son bienvenidos!"
 alert(salida2)
 
 //Se borra todo el codigo comentado a pedido de la correccion de la 1er Pre Entrega
