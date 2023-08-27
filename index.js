@@ -1,19 +1,3 @@
-//Saludo al tutor para agregar Prompt, Alert y Funcion interactiva
-
-const nombre = prompt("Bienvenido Tutor, tu nombre es?")
-
-function saludoAmistoso(nombre) {
-    alert("Hola!, " + nombre + "!!!" + " Gracias por corregir esta pre-entrega!")
-}
-
-saludoAmistoso(nombre)
-
-const salida2 = "Todos los comentarios son bienvenidos!"
-alert(salida2)
-
-
-
-
 //Intervalo automatico para el contador 
 
 const actualizador = setInterval(function(){

@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Handjet:wght@300;400;500&family=Oswald:wght@300;400;500;600;700&display=swap');
 
 *, *::before, *::after {
-    box-sizing: inherit;
+    box-sizing: border-box;
 }
 
 html{
@@ -234,9 +234,9 @@ img{
     border-radius: 5px;
     background: #000;
     opacity: 0.75;
-    margin: 25px;
+    margin: 10px;
     color: white;
-    width:200px;
+    width:100px;
 }
 
 
@@ -247,4 +247,10 @@ img{
     background-color: #fb4400;
     width:100%;
     font-weight:600;
+}
+
+@media (width < 541px) {
+    .container2 img{
+        display: none;
+    }
 }
