@@ -4,7 +4,7 @@ const actualizador = setInterval(function(){
 
 //Definimos el tiempo de inicio en milisegundos
 
-const inicioClase = new Date('August 31, 2023 23:59:59').getTime();
+const inicioClase = new Date('September 07, 2023 23:59:59').getTime();
 console.log(inicioClase);
 
 //Definimos el tiempo de ahora en milisegundos
