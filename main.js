@@ -1,4 +1,4 @@
-// Mi idea es armar un sistema para emitir turnos en un Consultorio Medico
+// En principio, la idea es armar un sistema para emitir turnos en un Consultorio Medico que me gustaria adaptar para organizar la agenda de un Profesional
 
 // Solicitar validación de usuario
 let usuarioValido = prompt("¡Hola! Por favor, ingrese su usuario: (user: tutor coder)");
@@ -7,7 +7,7 @@ let usuarioValido = prompt("¡Hola! Por favor, ingrese su usuario: (user: tutor 
 if (usuarioValido && usuarioValido.toLowerCase() === "tutor coder") {
     alert("¡Bienvenido, Tutor Coder! Estás validado para emitir turnos.");
     
-    // Inicializamos variables
+    // Inician variables
     let listaTurnos = [];
     let tiempoEsperaTotal = 0;
 
