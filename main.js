@@ -1,59 +1,84 @@
-//La idea sigue siendo la misma, un emisor de turnos que luego permita ordenarlos de alguna manera, por el momento es alfabeticamente segun nombre. 
-//Se agrego una validacion para la emision de turnos ante campos vacios o nulos, segun la correccion de la entrega anterior.
-//Quizas para las proximas entregas modifique el proyecto entero.
+//La idea sigue siendo desarrollar un Emisor de Turnos para un Consultorio Medico
 
+const listaTurnos = document.getElementById('listaTurnos');
+const turnoForm = document.getElementById('turnoForm');
+const infoDemora = document.getElementById('infoDemora');
+const infoTurnos = document.getElementById('infoTurnos');
+const infoDemoraTotal = document.getElementById('infoDemoraTotal');
 
-// Solicitar validación de usuario
-let usuarioValido = prompt("¡Hola! Por favor, ingrese su nombre para validar: (user: secretaria)");
+let turnos = []; // Array para almacenar los turnos
+let demoraTotal = 0;
+let intervaloDemora; // Variable para almacenar el intervalo de demora
 
-// Validar el nombre del usuario (usuario "secretaria")
-if (usuarioValido && usuarioValido.toLowerCase() === "secretaria") {
-    alert("¡Bienvenida, Secretaria! Estás validada para emitir turnos.");
-    
-    // Inicializamos variables
-    let listaTurnos = [];
-    let tiempoEsperaTotal = 25;
+function agregarTurno() {
+    const nombre = document.getElementById('nombre').value;
+    const apellido = document.getElementById('apellido').value;
+    const telefono = document.getElementById('telefono').value;
+    const esPacientePrevio = document.getElementById('esPacientePrevio').checked;
 
-    // Función para calcular el tiempo de espera en minutos
-    function calcularTiempoEspera(turnoActual) {
-        return turnoActual * 5; // Tiempo entre turnos 5´
+    const turno = {
+        nombre,
+        apellido,
+        telefono,
+        esPacientePrevio,
+    };
+
+    turnos.push(turno);
+    localStorage.setItem('turnos', JSON.stringify(turnos));
+    turnoForm.reset();
+    actualizarListaTurnos();
+    reiniciarIntervaloDemora();
+    mostrarInformacion();
+};
+
+function reiniciarIntervaloDemora() {
+    clearInterval(intervaloDemora);
+    // Simulación de demora entre turnos solo para probar
+    intervaloDemora = setInterval(() => {
+    demoraTotal += 5; // Incrementar demora cada 5 minutos
+    mostrarInformacion();
+    }, 5000); // Cada 5 segundos para propósitos de prueba, esto se puede ajustar segun requerimiento del profesional
+};
+
+function actualizarListaTurnos() {
+    listaTurnos.innerHTML = '';
+
+    // Recuperar los turnos almacenados
+    const turnosGuardados = JSON.parse(localStorage.getItem('turnos')) || [];
+
+    for (const turno of turnosGuardados) {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${turno.nombre} ${turno.apellido} - Teléfono: ${turno.telefono} - ¿Paciente previo? ${turno.esPacientePrevio ? 'Sí' : 'No'}`;
+        listaTurnos.appendChild(listItem);
     }
+};
 
-    // Función para reordenar los turnos alfabéticamente
-    function reordenarTurnos(turnos) {
-        return turnos.sort();
-    }
+function limpiarDatos() {
+    localStorage.removeItem('turnos');
+    turnos = [];
+    demoraTotal = 0;
+    mostrarInformacion();
+    actualizarListaTurnos();
+};
 
-    // Ciclo interactivo para emitir CINCO turnos
-    for (let i = 1; i <= 5; i++) {
-        let nuevoTurno = prompt(`Ingrese el nombre del paciente para el turno #${i}`);
+function esperarDemora() {
+    // Simulación de demora entre turnos
+    const intervaloDemora = 5 * 60 * 1000; // 5 minutos en milisegundos
 
-        // Validar nombre no vacío y no nulo
-        while (!nuevoTurno) {
-            nuevoTurno = prompt("Por favor, ingrese un nombre válido para el turno #" + i);
-        }
+    setInterval(() => {
+    demoraTotal += intervaloDemora;
+    mostrarInformacion();
+    }, intervaloDemora);
+};
 
-        listaTurnos.push({ numero: i, nombre: nuevoTurno, tiempoEspera: calcularTiempoEspera(i) });
+function mostrarInformacion() {
+    const cantidadTurnos = turnos.length;
+    infoTurnos.textContent = `Turnos emitidos: ${cantidadTurnos}`;
+    const minutosDemora = demoraTotal;
+    infoDemoraTotal.textContent = `Demora total acumulada: ${minutosDemora.toFixed(2)} minutos`;
+};
 
-        // Mostrar alerta con el turno y tiempo de espera
-        alert("Turno emitido: " + nuevoTurno + "\nTiempo de espera: " + calcularTiempoEspera(i) + " minutos");
-    }
-
-    // Reordenar los turnos alfabéticamente por el nombre
-    listaTurnos.sort((a, b) => a.nombre.localeCompare(b.nombre));
-
-    // Función de orden superior para mostrar información de los turnos
-    function mostrarInformacionTurnos(turno, indice) {
-        alert(`Turno #${turno.numero}: ${turno.nombre}\nTiempo de espera: ${turno.tiempoEspera} minutos`);
-    }
-
-    // Mostrar información de los turnos utilizando la función de orden superior
-    listaTurnos.forEach(mostrarInformacionTurnos);
-
-    // Mostrar resumen al final
-    alert(`Resumen:\nTurnos emitidos: ${listaTurnos.map(turno => turno.nombre).join(", ")}\nTiempo de espera total: ${tiempoEsperaTotal} minutos`);
-
-} else {
-    // Si el nombre no es válido, mostrar un mensaje de error
-    alert("Usuario no válido. Acceso denegado.");
-}
+// Limpiar datos al cargar la página
+window.onload = function() {
+limpiarDatos();
+};
