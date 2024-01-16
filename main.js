@@ -29,6 +29,7 @@ function agregarTurno() {
     actualizarListaTurnos();
     reiniciarIntervaloDemora();
     mostrarInformacion();
+    mostrarMensajeExito();
 };
 
 function reiniciarIntervaloDemora() {
@@ -76,6 +77,16 @@ function mostrarInformacion() {
     infoTurnos.textContent = `Turnos emitidos: ${cantidadTurnos}`;
     const minutosDemora = demoraTotal;
     infoDemoraTotal.textContent = `Demora total acumulada: ${minutosDemora.toFixed(2)} minutos`;
+};
+
+// Función para mostrar un mensaje de éxito con Sweet Alert
+function mostrarMensajeExito() {
+    Swal.fire({
+        icon: 'success',
+        title: 'Turno Agregado con Éxito',
+        showConfirmButton: false,
+        timer: 2000  // 2 segundos
+    });
 };
 
 // Limpiar datos al cargar la página
