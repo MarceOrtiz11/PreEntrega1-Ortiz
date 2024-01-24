@@ -1,4 +1,4 @@
-body {
+body{
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
     margin: 0;
@@ -7,10 +7,9 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh;
 }
 
-h1, h2 {
+h1, h2, h3 {
     color: #333;
 }
 
@@ -53,7 +52,7 @@ ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    width: 300px;
+    width: 250px;
 }
 
 li {
@@ -63,4 +62,25 @@ li {
     margin-bottom: 8px;
     padding: 10px;
     box-sizing: border-box;
+}
+
+.btn {
+    background-color: #00BFA6;
+    padding: 14px 40px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-radius: 10px;
+    border: 2px dashed #00BFA6;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    transition: .4s;
+}
+
+.resenas {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    
 }

@@ -1,4 +1,5 @@
 //La idea sigue siendo desarrollar un Emisor de Turnos para un Consultorio Medico
+//Se agrega al final el uso de la API emulando la toma de reseñas del sitio web del profesional
 
 const listaTurnos = document.getElementById('listaTurnos');
 const turnoForm = document.getElementById('turnoForm');
@@ -16,28 +17,54 @@ function agregarTurno() {
     const telefono = document.getElementById('telefono').value;
     const esPacientePrevio = document.getElementById('esPacientePrevio').checked;
 
-    const turno = {
-        nombre,
-        apellido,
-        telefono,
-        esPacientePrevio,
-    };
+    const agregarTurnoPromise = new Promise((resolve, reject) => {
+        if (esPacientePrevio) {
+            const turno = {
+                nombre,
+                apellido,
+                telefono,
+                esPacientePrevio,
+            };
 
-    turnos.push(turno);
-    localStorage.setItem('turnos', JSON.stringify(turnos));
-    turnoForm.reset();
-    actualizarListaTurnos();
-    reiniciarIntervaloDemora();
-    mostrarInformacion();
-    mostrarMensajeExito();
+            turnos.push(turno);
+            localStorage.setItem('turnos', JSON.stringify(turnos));
+            turnoForm.reset();
+            actualizarListaTurnos();
+            reiniciarIntervaloDemora();
+            mostrarInformacion();
+            resolve("Turno agregado con éxito");
+        } else {
+            reject("Debe registrar al paciente para poder emitir turno");
+        }
+    });
+
+    agregarTurnoPromise
+        .then((mensaje) => {
+            // Éxito: Mostrar mensaje de Sweet Alert Positivo
+            Swal.fire({
+                icon: 'success',
+                title: 'Turno Agregado con Éxito',
+                showConfirmButton: false,
+                timer: 1500  // 1.5 segundos
+            });
+        })
+        .catch((error) => {
+            // Error: Mostrar mensaje de Sweet Alert que primero debe registrar al paciente para poder emitir turno
+            Swal.fire({
+                icon: 'error',
+                title: 'Antes Debe Registrar al Paciente',
+                showConfirmButton: false,
+                timer: 1500  // 1.5 segundos
+            });
+        });
 };
 
 function reiniciarIntervaloDemora() {
     clearInterval(intervaloDemora);
     // Simulación de demora entre turnos solo para probar
     intervaloDemora = setInterval(() => {
-    demoraTotal += 5; // Incrementar demora cada 5 minutos
-    mostrarInformacion();
+        demoraTotal += 5; // Incrementar demora cada 5 minutos
+        mostrarInformacion();
     }, 5000); // Cada 5 segundos para propósitos de prueba, esto se puede ajustar segun requerimiento del profesional
 };
 
@@ -85,9 +112,27 @@ function mostrarMensajeExito() {
         icon: 'success',
         title: 'Turno Agregado con Éxito',
         showConfirmButton: false,
-        timer: 2000  // 2 segundos
+        timer: 1500  // 1.5 segundos
     });
 };
+
+//Uso de Api que a futuro seran las reseñas del consultorio
+let listado = document.getElementById("listado");
+    
+fetch("https://jsonplaceholder.typicode.com/posts?_limit=5")
+    .then((response) => response.json())
+    .then((response) => {
+        response.forEach(publicacion => {
+            const li = document.createElement("li");
+            li.innerHTML = `
+                <h2>${publicacion.title}</h2>
+                <p>${publicacion.body}</p>
+            `;
+
+            listado.append(li)
+
+        });
+    });
 
 // Limpiar datos al cargar la página
 window.onload = function() {
