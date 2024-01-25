@@ -1,4 +1,4 @@
-# PreEntrega3-Ortiz
+# ProyectoFinal-Ortiz
 
 - 👋 Hi, I’m @MarceOrtiz11 
 - 🌱 I’m currently learning ...
@@ -10,6 +10,6 @@
 -   
 
 
-- 👀 Link Repo: https://github.com/MarceOrtiz11/PreEntrega3-Ortiz
+- 👀 Link Repo: https://github.com/MarceOrtiz11/ProyectoFinal-Ortiz
 
-- 🚀 Link Pages: https://marceortiz11.github.io/PreEntrega3-Ortiz
+- 🚀 Link Pages: https://marceortiz11.github.io/ProyectoFinal-Ortiz
